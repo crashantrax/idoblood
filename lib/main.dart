@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'home_page.dart';
 import 'searchDonor_page.dart';
+import 'new_account.dart';
 
 
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     LoginPage.tag: (context) => LoginPage(),
     SearchDonorPage.tag: (context) => SearchDonorPage(),
     HomePage.tag: (context) => HomePage(),
+    Register.tag: (context) => Register(),
   };
 
   @override

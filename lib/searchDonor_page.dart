@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'login_page.dart';
 
 class SearchDonorPage extends StatelessWidget {
+  final routes = <String, WidgetBuilder>{
+    LoginPage.tag: (context) => LoginPage(),
+    SearchDonorPage.tag: (context) => SearchDonorPage(),
+  };
   static String tag = 'searchdonor-page';
 
   var idUser, username, firstname, lastname;
@@ -211,16 +216,20 @@ class SearchDonorPage extends StatelessWidget {
       ),
     );
 
-    final cancel = Padding(
+    final logout = Padding(
       padding: EdgeInsets.symmetric(horizontal:15.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(),
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SearchDonorPage()));
+              context, MaterialPageRoute(builder: (context) 
+          {
+            return LoginPage();
+          }
+          ));
         },
         color: Colors.redAccent,
-        child: Text('Cancel', style: TextStyle(color: Colors.white)),
+        child: Text('Logout', style: TextStyle(color: Colors.white)),
       ),
     );
 
@@ -506,7 +515,7 @@ class SearchDonorPage extends StatelessWidget {
                     city,
                     check,
                     Row(children: <Widget>[
-                      edit,update,cancel,
+                      edit,update,logout,
                     ],)
                   ],
                 ),

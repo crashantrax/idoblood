@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
     Future<String> getLogin(String pseudo) async {
       var response = await http.get(
           Uri.encodeFull(
-              "https://idoblood.000webhostapp.com/files/Login.php?PSEUDO=${pseudo}"),
+              "https://projectidoblood.000webhostapp.com/FlutterTraining/Login.php?PSEUDO=${pseudo}"),
           headers: {"Accept": "application/json"});
 
       print(response.body);
