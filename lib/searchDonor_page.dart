@@ -8,39 +8,16 @@ class SearchDonorPage extends StatelessWidget {
   };
   static String tag = 'searchdonor-page';
 
-  var idUser, username, firstname, lastname;
+  var idUser, username, firstname, lastname, gender, email, phonNumber, address;
   SearchDonorPage(
-      {Key key, this.idUser, this.firstname, this.lastname, this.username})
+      {Key key, this.idUser, this.firstname, this.lastname, this.username, this.gender, this.email, this.phonNumber, this.address})
       : super(key: key);
 
 
 
   @override
   Widget build(BuildContext context) {
-    final bb1 = Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5.0),
-      child: FlatButton(
-        child: Text(
-          'Blood Bank',
-          style: TextStyle(color: Colors.black),
-        ),
-        onPressed: () {},
-      ),
-    );
 
-    final md =
-        // Padding(
-        // padding: EdgeInsets.symmetric(horizontal: 0.5),
-        // child:
-        Text(
-      "My Details",
-      style: new TextStyle(
-          fontSize: 18.0,
-          color: Colors.black,
-          fontWeight: FontWeight.w500,
-          fontFamily: "Roboto"),
-    );
-    // );
 
     final sendRButton = Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -92,16 +69,16 @@ class SearchDonorPage extends StatelessWidget {
     final name = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
-      initialValue: 'Yami',
+      initialValue: firstname,
       decoration: InputDecoration(
         hintText: 'Name',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
       ),
     );
-    final gender = TextFormField(
+    final gender1 = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
-      initialValue: 'Female',
+      initialValue: gender,
       decoration: InputDecoration(
         hintText: 'Gender',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -118,10 +95,10 @@ class SearchDonorPage extends StatelessWidget {
       ),
     );
 
-    final email = TextFormField(
+    final email1 = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
-      initialValue: 'YamiAniaveza@example.com',
+      initialValue: email,
       decoration: InputDecoration(
         hintText: 'Email',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -130,32 +107,23 @@ class SearchDonorPage extends StatelessWidget {
     final contact = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
-      initialValue: '09122290564',
+      initialValue: phonNumber,
       decoration: InputDecoration(
         hintText: 'Contact #',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
       ),
     );
 
-    final address = TextFormField(
+    final address1 = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
-      initialValue: 'Siquijor',
+      initialValue: address,
       decoration: InputDecoration(
         hintText: 'Address',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
       ),
     );
 
-    final city = TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      autofocus: false,
-      initialValue: 'No Where City ',
-      decoration: InputDecoration(
-        hintText: 'City',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-      ),
-    );
     bool checkedValue = false;
     final check = Padding(
       padding: EdgeInsets.symmetric(horizontal: 50.0),
@@ -507,12 +475,11 @@ class SearchDonorPage extends StatelessWidget {
                     logo,
                     SizedBox(height: 38.0),
                     name,
-                    gender,
+                    gender1,
                     bloodgroup,
-                    email,
+                    email1,
                     contact,
-                    address,
-                    city,
+                    address1,
                     check,
                     Row(children: <Widget>[
                       edit,update,logout,

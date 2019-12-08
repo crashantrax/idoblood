@@ -60,13 +60,17 @@ class _LoginPageState extends State<LoginPage> {
       if (data[0]['username'] == pseudo) {
         if (data[0]['password'] == password) {
           // Navigator.of(context).pushNamed("/seconds");
-
+          //USED TO CALL DATA FOR PROFILE OR DISPLAY DETAILS
           var route = new MaterialPageRoute(
             builder: (BuildContext context) => new SearchDonorPage(
               idUser: data[0]['user_id'],
               firstname: data[0]['first_name'],
               lastname: data[0]['last_name'],
               username: data[0]['username'],
+              gender: data[0]['gender'],
+              email: data[0]['Email'],
+              phonNumber: data[0]['Phone_Number'],
+              address: data[0]['Address'],
             ),
           );
           Navigator.of(context).push(route);
