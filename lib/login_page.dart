@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
               "https://projectidoblood.000webhostapp.com/FlutterTraining/Login.php?PSEUDO=${pseudo}"),
           headers: {"Accept": "application/json"});
 
-      print(response.body);
+      // print(response.body);
       setState(() {
         var convertDataToJson = json.decode(response.body);
         data = convertDataToJson['result'];

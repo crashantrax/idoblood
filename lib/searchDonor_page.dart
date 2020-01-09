@@ -10,22 +10,25 @@ class SearchDonorPage extends StatelessWidget {
 
   var idUser, username, firstname, lastname, gender, email, phonNumber, address;
   SearchDonorPage(
-      {Key key, this.idUser, this.firstname, this.lastname, this.username, this.gender, this.email, this.phonNumber, this.address})
+      {Key key,
+      this.idUser,
+      this.firstname,
+      this.lastname,
+      this.username,
+      this.gender,
+      this.email,
+      this.phonNumber,
+      this.address})
       : super(key: key);
-
-
 
   @override
   Widget build(BuildContext context) {
-
-
     final sendRButton = Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(),
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => null));
+          Navigator.of(context).canPop();
         },
         padding: EdgeInsets.all(12),
         color: Colors.redAccent,
@@ -163,43 +166,51 @@ class SearchDonorPage extends StatelessWidget {
       child: RaisedButton(
         shape: RoundedRectangleBorder(),
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SearchDonorPage()));
+          Navigator.of(context).canPop();
         },
         color: Colors.redAccent,
         child: Text('Edit', style: TextStyle(color: Colors.white)),
       ),
     );
 
-    final update = Padding(
-      padding: EdgeInsets.symmetric(horizontal:15.0),
-      child: RaisedButton(
-        shape: RoundedRectangleBorder(),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SearchDonorPage()));
-        },
-        color: Colors.redAccent,
-        child: Text('Update', style: TextStyle(color: Colors.white)),
-      ),
-    );
+    final update = Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(left: 50.0, top: 10.0),
+            child: RaisedButton(
+              shape: RoundedRectangleBorder(),
+              onPressed: () {
+                Navigator.of(context).canPop();
+              },
+              color: Colors.redAccent,
+              child: Text('Update', style: TextStyle(color: Colors.white)),
+            ),
+          )
+        ]);
 
-    final logout = Padding(
-      padding: EdgeInsets.symmetric(horizontal:15.0),
-      child: RaisedButton(
-        shape: RoundedRectangleBorder(),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) 
-          {
-            return LoginPage();
-          }
-          ));
-        },
-        color: Colors.redAccent,
-        child: Text('Logout', style: TextStyle(color: Colors.white)),
-      ),
-    );
+    final logout = Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(left: 50.0,top: 10.0),
+            child: RaisedButton(
+              shape: RoundedRectangleBorder(),
+              onPressed: () {
+                // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                //   return LoginPage();
+                // }));
+                Navigator.of(context).pop();
+              },
+              color: Colors.redAccent,
+              child: Text('Logout', style: TextStyle(color: Colors.white)),
+            ),
+          )
+        ]);
 
     //create here your main
     return MaterialApp(
@@ -480,10 +491,14 @@ class SearchDonorPage extends StatelessWidget {
                     email1,
                     contact,
                     address1,
-                    check,
-                    Row(children: <Widget>[
-                      edit,update,logout,
-                    ],)
+                    // check,
+                    Row(
+                      children: <Widget>[
+                        // edit,
+                        update,
+                        logout,
+                      ],
+                    )
                   ],
                 ),
               ),

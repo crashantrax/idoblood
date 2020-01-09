@@ -81,7 +81,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: Colors.redAccent,),
       body: new Form(
         key: _formKey,
         //padding: const EdgeInsets.only(
